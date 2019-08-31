@@ -9,6 +9,8 @@ RUN apk update && \
   mix local.rebar --force && \
   mix local.hex --force
 
+ARG MIX_ENV=prod
+
 RUN mkdir /app
 COPY . /app
 WORKDIR /app
@@ -23,4 +25,4 @@ RUN cd assets && \
 
 EXPOSE 4000
 
-CMD ["mix", "phx.server"]
+CMD MIX_ENV=prod mix phx.server
