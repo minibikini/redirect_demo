@@ -19,10 +19,12 @@ defmodule RedirectDemoWeb.Router do
 
     get "/", PageController, :index
 
+    # https://github.com/phoenixframework/phoenix_live_view/issues/327
     live "/posts", PostLive.Index
     live "/posts/:id", PostLive.Show, session: [:path_params]
     live "/posts/:id/edit", PostLive.Edit, session: [:path_params]
 
+    # https://github.com/phoenixframework/phoenix_live_view/issues/340
     live "/no_flash", NoFlashLive.Index
     live "/no_flash/:id", NoFlashLive.Show, session: [:path_params]
   end
