@@ -18,9 +18,13 @@ defmodule RedirectDemoWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
     live "/posts", PostLive.Index
     live "/posts/:id", PostLive.Show, session: [:path_params]
     live "/posts/:id/edit", PostLive.Edit, session: [:path_params]
+
+    live "/no_flash", NoFlashLive.Index
+    live "/no_flash/:id", NoFlashLive.Show, session: [:path_params]
   end
 
   # Other scopes may use custom stacks.
